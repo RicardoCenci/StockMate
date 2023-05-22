@@ -71,13 +71,13 @@ def exportarEstoque():
     output = input("Nome do arquivo de saida: ")
     produtos = dados.obterProdutos()
 
-    with open(output, 'w') as file:
+    with open(output + '.csv', 'w') as file:
         file.write('id;nome;valor;quantidade\n')
         for produto in produtos:
             qtd = dados.obterQuantidadeProduto(produto['id'])
             file.write(f"{produto['id']};{produto['nome']};{produto['valor']};{qtd}\n")
 
-    print(f'Arquivo {output} gerado com sucesso')
+    print(f'Arquivo {output.csv} gerado com sucesso')
     input('Continuar')
 
 def graficoMovEstoque():
@@ -86,10 +86,10 @@ def graficoMovEstoque():
     y = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     
     movimentacoes = dados.obterMovimentacoesPorProduto(idProduto)
-    for movimentacoes in movimentacoes:
-        dataMovimentacao = parser.parse(movimentacoes['data']) 
+    for movimentacao in movimentacoes:
+        dataMovimentacao = parser.parse(movimentacao['data']) 
         mes = dataMovimentacao.month
-        y[mes - 1] += movimentacoes['quantidade'] if movimentacoes['tipo'] == 'entrada' else -movimentacoes['quantidade']
+        y[mes - 1] += movimentacao['quantidade'] if movimentacao['tipo'] == 'entrada' else -movimentacao['quantidade']
 
     plt.plot(util.obterMeses(), y)
     plt.xlabel('Mês')
@@ -105,10 +105,10 @@ def graficoValorEstoque():
     for produto in produtos:
         movimentacoes = dados.obterMovimentacoesPorProduto(produto['id'])
 
-        for movimentacoes in movimentacoes:
-            dataMovimentacao = parser.parse(movimentacoes['data']) 
+        for movimentacao in movimentacoes:
+            dataMovimentacao = parser.parse(movimentacao['data']) 
             mes = dataMovimentacao.month
-            quantidade = movimentacoes['quantidade'] if movimentacoes['tipo'] == 'entrada' else -movimentacoes['quantidade'];
+            quantidade = movimentacao['quantidade'] if movimentacao['tipo'] == 'entrada' else -movimentacao['quantidade'];
             y[mes - 1] += produto['valor'] * quantidade
 
     plt.plot(util.obterMeses(), y)
