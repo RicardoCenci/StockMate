@@ -48,13 +48,14 @@ def cadastrarMovimentacoes():
 def atualizarProduto():
     idProduto = util.inputUntilValid('ID do produto', dados.isValidProductID)
     produto = dados.obterProdutoPorId(idProduto)
-    campo = input('Qual campo deseja atualizar?')
+    campos = ['nome', 'valor'];
+    campo = input('Qual campo deseja atualizar? ' + f'{"/".join(campos)}')
 
-    if campo not in ['nome', 'valor']:
+    if campo not in campos:
         print('Campo invalido')
         return
 
-    valor = input('Novo valor: ')
+    valor = input(f'Novo {campo}: ')
     produto[campo] = valor
     dados.saveProduto(produto['id'], produto)
 
@@ -131,7 +132,7 @@ def graficoValorProduto():
 
         for movimentacoes in movimentacoes:
             quantidade = movimentacoes['quantidade'] if movimentacoes['tipo'] == 'entrada' else -movimentacoes['quantidade'];
-            y[idxProduto] += produto['valor'] * quantidade
+            y[idxProduto] += float(produto['valor']) * float(quantidade)
 
     plt.bar(x, y)
     plt.xlabel('Produto')
