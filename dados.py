@@ -100,7 +100,7 @@ def insertMovimentacao(idProduto, tipo, quantidade):
     "idProduto" : int(idProduto),
     'tipo' : tipo,
     'quantidade': float(quantidade),
-    'data' : datetime.datetime.now() 
+    'data' : datetime.datetime.now().isoformat()
   })
   salvarPlanilhaMovimentacoes()
 
