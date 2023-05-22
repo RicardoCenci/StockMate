@@ -20,6 +20,6 @@ while(isRunning):
         continue
 
     try:
-        funcao = menu.obterFuncao(opcao)()
+        menu.obterFuncao(opcao)()
     except util.OperacaoCancelada:
         util.pprint('Operacao cancelada')
