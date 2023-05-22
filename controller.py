@@ -23,7 +23,7 @@ def consultarProduto():
     quantidade = dados.obterQuantidadeProduto(produto['id'])
     pprint(f'Quantidade: {quantidade}', 1)
 
-    input('\nContinuar')
+    input('\nEnter para continuar')
 
 
 def cadastrarMovimentacoes():
@@ -54,7 +54,7 @@ def calcularValorTotal():
         qtd = dados.obterQuantidadeProduto(produto['id'])
         total += float(produto['valor']) * qtd
     print(f'Total: R$ {total}')
-    input('Continuar')
+    input('Enter para continuar')
 
 def exportarEstoque():
     output = input("Nome do arquivo de saida: ")
@@ -67,7 +67,7 @@ def exportarEstoque():
             file.write(f"{produto['id']};{produto['nome']};{produto['valor']};{qtd}\n")
 
     print(f'Arquivo {output}.csv gerado com sucesso')
-    input('Continuar')
+    input('Enter para continuar')
 
 def graficoMovEstoque():
     idProduto = util.inputUntilValid('ID do produto', dados.isValidProductID)
@@ -137,4 +137,4 @@ def listarProdutos():
         quantidade = dados.obterQuantidadeProduto(produto['id'])
         pprint(f'Quantidade: {quantidade}', 1)
         print('--------------------------------------------------------')
-    input('Continuar')
+    input('Enter para continuar')

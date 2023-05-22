@@ -16,7 +16,7 @@ while(isRunning):
 
     if(not menu.ehOpcaoValida(opcao)):
         print('Opcao invalida')
-        input('Continuar')
+        input('Enter para continuar')
         continue
 
     try:
