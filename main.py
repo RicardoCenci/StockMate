@@ -77,7 +77,7 @@ def exportarEstoque():
             qtd = dados.obterQuantidadeProduto(produto['id'])
             file.write(f"{produto['id']};{produto['nome']};{produto['valor']};{qtd}\n")
 
-    print(f'Arquivo {output.csv} gerado com sucesso')
+    print(f'Arquivo {output}.csv gerado com sucesso')
     input('Continuar')
 
 def graficoMovEstoque():
@@ -109,7 +109,7 @@ def graficoValorEstoque():
             dataMovimentacao = parser.parse(movimentacao['data']) 
             mes = dataMovimentacao.month
             quantidade = movimentacao['quantidade'] if movimentacao['tipo'] == 'entrada' else -movimentacao['quantidade'];
-            y[mes - 1] += produto['valor'] * quantidade
+            y[mes - 1] += float(produto['valor']) * float(quantidade)
 
     plt.plot(util.obterMeses(), y)
     plt.xlabel('Mês')
