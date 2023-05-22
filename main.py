@@ -159,35 +159,35 @@ menu = {
         'title' : 'Consultar Produto',
         'function' : consultarProduto
     },
-    "4": {
+    "3": {
         'title': "Listar produtos",
         'function': listarProdutos
     },   
-    '5': {
+    '4': {
         'title' : 'Atualizacao de Produto',
         'function' : atualizarProduto
     },
-    '6': {
+    '5': {
         'title' : 'Cadastrar Movimentação',
         'function' : cadastrarMovimentacoes
     },
-    '7': {
+    '6': {
         'title' : 'Calcular valor total do estoque',
         'function' : calcularValorTotal
     },
-    '8': {
+    '7': {
         'title' : 'Exportar o estado atual do estoque',
         'function' : exportarEstoque
     },
-    '9':{
+    '8':{
         'title' : 'Grafico de movimentação de estoque do produto',
         'function' : graficoMovEstoque
     },
-    "10": {
+    "9": {
         'title': "Grafico de valor total do estoque",
         'function': graficoValorEstoque
     },
-    "11": {
+    "10": {
         'title': "Grafico valor total por produto",
         'function': graficoValorProduto
     }
